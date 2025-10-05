@@ -1,38 +1,38 @@
 # PayPal QR Generator
 
-Ứng dụng tạo QR code PayPal với timer 1 giờ, được xây dựng bằng React, Vite và TailwindCSS.
+A PayPal QR code generator application with 1-hour timer, built with React, Vite, and TailwindCSS.
 
-## Tính năng
+## Features
 
-- ✅ PayPal username cố định: `NamSunny197`
-- ✅ Nhập số tiền để tạo URL PayPal
-- ✅ Tạo QR code real-time
-- ✅ Timer đếm ngược 1 giờ
-- ✅ Progress bar với màu sắc thay đổi
-- ✅ Copy URL vào clipboard
-- ✅ Download QR code dưới dạng hình ảnh
+- ✅ Fixed PayPal username: `NamSunny197`
+- ✅ Enter amount to generate PayPal URL
+- ✅ Real-time QR code generation
+- ✅ 1-hour countdown timer
+- ✅ Progress bar with color changes
+- ✅ Copy URL to clipboard
+- ✅ Download QR code as image
 - ✅ Responsive design
-- ✅ Validation số tiền
+- ✅ Amount validation
 
-## Cài đặt
+## Installation
 
 ```bash
-# Cài đặt dependencies
+# Install dependencies
 npm install
 
-# Chạy development server
+# Run development server
 npm run dev
 
-# Build cho production
+# Build for production
 npm run build
 ```
 
-## Cách sử dụng
+## Usage
 
-1. Nhập số tiền muốn gửi (USD)
-2. Click "Tạo QR" để tạo QR code
-3. QR code sẽ hiển thị với timer 1 giờ
-4. Sử dụng "Copy URL" hoặc "Download QR" để lưu
+1. Enter the amount you want to send (USD)
+2. Click "Generate QR" to create QR code
+3. QR code will display with 1-hour timer
+4. Use "Copy URL" or "Download QR" to save
 
 ## Tech Stack
 
@@ -48,4 +48,4 @@ npm run build
 https://paypal.me/NamSunny197/{amount}
 ```
 
-Ví dụ: `https://paypal.me/NamSunny197/100`
+Example: `https://paypal.me/NamSunny197/100`

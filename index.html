@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="vi">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -8,30 +8,39 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https:; font-src 'self' data:;">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    
     <!-- Primary Meta Tags -->
-    <title>PayPal QR Generator - Tạo QR Code Thanh Toán PayPal Miễn Phí</title>
-    <meta name="title" content="PayPal QR Generator - Tạo QR Code Thanh Toán PayPal Miễn Phí" />
-    <meta name="description" content="Tạo QR code PayPal nhanh chóng và miễn phí. Nhập số tiền, tạo QR code với timer 1 giờ. Hỗ trợ copy URL và download QR code." />
-    <meta name="keywords" content="paypal qr code, tạo qr code paypal, thanh toán paypal, qr generator, paypal me, qr code generator" />
+    <title>PayPal QR Generator - Free PayPal Payment QR Code Creator</title>
+    <meta name="title" content="PayPal QR Generator - Free PayPal Payment QR Code Creator" />
+    <meta name="description" content="Create PayPal QR codes quickly and for free. Enter amount, generate QR code with 1-hour timer. Supports copy URL and download QR code." />
+    <meta name="keywords" content="paypal qr code, create paypal qr code, paypal payment, qr generator, paypal me, qr code generator" />
     <meta name="author" content="PayPal QR Generator" />
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="Vietnamese" />
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="language" content="English" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://paypal-qr-generator.com/" />
-    <meta property="og:title" content="PayPal QR Generator - Tạo QR Code Thanh Toán PayPal Miễn Phí" />
-    <meta property="og:description" content="Tạo QR code PayPal nhanh chóng và miễn phí. Nhập số tiền, tạo QR code với timer 1 giờ. Hỗ trợ copy URL và download QR code." />
-    <meta property="og:image" content="https://paypal-qr-generator.com/og-image.png" />
+    <meta property="og:url" content="https://zuna-qr-code.vercel.app/" />
+    <meta property="og:title" content="PayPal QR Generator - Free PayPal Payment QR Code Creator" />
+    <meta property="og:description" content="Create PayPal QR codes quickly and for free. Enter amount, generate QR code with 1-hour timer. Supports copy URL and download QR code." />
+    <meta property="og:image" content="https://zuna-qr-code.vercel.app/og-image.png" />
     <meta property="og:site_name" content="PayPal QR Generator" />
-    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale" content="en_US" />
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://paypal-qr-generator.com/" />
-    <meta property="twitter:title" content="PayPal QR Generator - Tạo QR Code Thanh Toán PayPal Miễn Phí" />
-    <meta property="twitter:description" content="Tạo QR code PayPal nhanh chóng và miễn phí. Nhập số tiền, tạo QR code với timer 1 giờ. Hỗ trợ copy URL và download QR code." />
-    <meta property="twitter:image" content="https://paypal-qr-generator.com/og-image.png" />
+    <meta property="twitter:url" content="https://zuna-qr-code.vercel.app/" />
+    <meta property="twitter:title" content="PayPal QR Generator - Free PayPal Payment QR Code Creator" />
+    <meta property="twitter:description" content="Create PayPal QR codes quickly and for free. Enter amount, generate QR code with 1-hour timer. Supports copy URL and download QR code." />
+    <meta property="twitter:image" content="https://zuna-qr-code.vercel.app/og-image.png" />
     
     <!-- Additional SEO -->
     <meta name="theme-color" content="#0070ba" />
@@ -41,7 +50,7 @@
     <meta name="apple-mobile-web-app-title" content="PayPal QR Generator" />
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://paypal-qr-generator.com/" />
+    <link rel="canonical" href="https://zuna-qr-code.vercel.app/" />
     
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -49,8 +58,8 @@
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "PayPal QR Generator",
-      "description": "Tạo QR code PayPal nhanh chóng và miễn phí. Nhập số tiền, tạo QR code với timer 1 giờ.",
-      "url": "https://paypal-qr-generator.com/",
+      "description": "Create PayPal QR codes quickly and for free. Enter amount, generate QR code with 1-hour timer.",
+      "url": "https://zuna-qr-code.vercel.app/",
       "applicationCategory": "BusinessApplication",
       "operatingSystem": "Web Browser",
       "offers": {
@@ -63,11 +72,11 @@
         "name": "PayPal QR Generator"
       },
       "featureList": [
-        "Tạo QR code PayPal miễn phí",
-        "Timer 1 giờ tự động hết hạn",
-        "Copy URL vào clipboard",
-        "Download QR code dưới dạng hình ảnh",
-        "Responsive design cho mobile"
+        "Create PayPal QR codes for free",
+        "1-hour timer with automatic expiration",
+        "Copy URL to clipboard",
+        "Download QR code as image",
+        "Responsive design for mobile"
       ]
     }
     </script>

@@ -1,5 +1,6 @@
 {
   "name": "paypal-qr-generator",
+  "description": "A PayPal QR code generator application with 1-hour timer, built with React, Vite, and TailwindCSS",
   "private": true,
   "version": "0.0.0",
   "type": "module",

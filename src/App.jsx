@@ -123,10 +123,10 @@ function App() {
       addToRecentAmounts(amount)
       addToQrHistory(amount, url)
       
-      showSuccessNotification('QR Code đã được tạo thành công!')
+      showSuccessNotification('QR Code generated successfully!')
     } catch (error) {
       console.error('Error generating QR code:', error)
-      setInputError('Có lỗi xảy ra khi tạo QR code. Vui lòng thử lại.')
+      setInputError('Error occurred while generating QR code. Please try again.')
     } finally {
       setIsGenerating(false)
     }
@@ -149,7 +149,7 @@ function App() {
   const handleGenerateQR = () => {
     const numAmount = parseFloat(amount)
     if (!amount || isNaN(numAmount) || numAmount <= 0) {
-      setInputError('Vui lòng nhập số tiền hợp lệ (lớn hơn 0)')
+      setInputError('Please enter a valid amount (greater than 0)')
       return
     }
     
@@ -175,10 +175,10 @@ function App() {
     if (url) {
       try {
         await navigator.clipboard.writeText(url)
-        showSuccessNotification('URL đã được copy vào clipboard!')
+        showSuccessNotification('URL copied to clipboard!')
       } catch (error) {
         console.error('Failed to copy:', error)
-        setInputError('Không thể copy URL. Vui lòng thử lại.')
+        setInputError('Unable to copy URL. Please try again.')
       }
     }
   }
@@ -186,7 +186,7 @@ function App() {
   const copyUrlFromHistory = async (url) => {
     try {
       await navigator.clipboard.writeText(url)
-      showSuccessNotification('URL đã được copy vào clipboard!')
+      showSuccessNotification('URL copied to clipboard!')
     } catch (error) {
       console.error('Failed to copy:', error)
     }
@@ -200,17 +200,17 @@ function App() {
         link.download = `paypal-qr-${amount}-${Date.now()}.png`
         link.href = canvas.toDataURL()
         link.click()
-        showSuccessNotification('QR Code đã được tải xuống!')
+        showSuccessNotification('QR Code downloaded successfully!')
       } catch (error) {
         console.error('Error downloading QR code:', error)
-        setInputError('Không thể tải xuống QR code. Vui lòng thử lại.')
+        setInputError('Unable to download QR code. Please try again.')
       }
     }
   }
 
   const formatDate = (timestamp) => {
     const date = new Date(timestamp)
-    return date.toLocaleString('vi-VN', {
+    return date.toLocaleString('en-US', {
       day: '2-digit',
       month: '2-digit',
       year: 'numeric',
@@ -279,7 +279,7 @@ function App() {
             <FaPaypal className="text-3xl" />
             <h1 className="text-2xl font-bold">PayPal QR Generator</h1>
           </div>
-          <p className="text-center text-blue-100">Tạo QR code thanh toán PayPal</p>
+          <p className="text-center text-blue-100">Create PayPal payment QR codes</p>
         </div>
 
         {/* Tab Navigation */}
@@ -293,8 +293,8 @@ function App() {
             }`}
           >
             <FaDollarSign />
-            <span className="hidden sm:inline">Nhập số tiền</span>
-            <span className="sm:hidden">Nhập</span>
+            <span className="hidden sm:inline">Enter Amount</span>
+            <span className="sm:hidden">Enter</span>
           </button>
           <button
             onClick={() => setActiveTab('qr')}
@@ -317,8 +317,8 @@ function App() {
             }`}
           >
             <FaHistory />
-            <span className="hidden sm:inline">Lịch sử</span>
-            <span className="sm:hidden">Sử</span>
+            <span className="hidden sm:inline">History</span>
+            <span className="sm:hidden">Hist</span>
           </button>
         </div>
 
@@ -362,7 +362,7 @@ function App() {
               {/* Preset Amounts */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-3">
-                  Chọn số tiền (USD)
+                  Select Amount (USD)
                 </label>
                 <div className="grid grid-cols-3 gap-2 mb-4">
                   {presetAmounts.map((presetAmount) => (
@@ -384,7 +384,7 @@ function App() {
               {/* Custom Amount Input */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Nhập số tiền tùy chỉnh
+                  Enter Custom Amount
                 </label>
                 <div className="space-y-2">
                   <div className="flex space-x-2">
@@ -394,7 +394,7 @@ function App() {
                       value={amount}
                       onChange={handleAmountChange}
                       onKeyPress={handleKeyPress}
-                      placeholder="Nhập số tiền..."
+                      placeholder="Enter amount..."
                       className={`flex-1 px-4 py-3 border rounded-lg focus:ring-2 focus:ring-paypal-blue focus:border-transparent outline-none transition-all duration-200 ${
                         inputError ? 'border-red-300 bg-red-50' : 'border-gray-300'
                       }`}
@@ -407,12 +407,12 @@ function App() {
                       {isGenerating ? (
                         <>
                           <FaSpinner className="animate-spin" />
-                          <span>Đang tạo...</span>
+                          <span>Generating...</span>
                         </>
                       ) : (
                         <>
                           <FaQrcode />
-                          <span>Tạo QR</span>
+                          <span>Generate QR</span>
                         </>
                       )}
                     </button>
@@ -424,7 +424,7 @@ function App() {
                     </div>
                   )}
                   <p className="text-xs text-gray-500">
-                    Nhấn Enter để tạo QR code nhanh
+                    Press Enter to generate QR code quickly
                   </p>
                 </div>
               </div>
@@ -460,7 +460,7 @@ function App() {
                   <div className="flex items-center justify-center space-x-2 mb-2">
                     <FaExclamationTriangle className="text-red-600" />
                     <p className="text-red-800 font-medium">
-                      QR Code đã hết hạn! Vui lòng tạo mới.
+                      QR Code has expired! Please generate a new one.
                     </p>
                   </div>
                   <button
@@ -468,7 +468,7 @@ function App() {
                     className="mt-2 px-4 py-2 bg-paypal-blue text-white rounded-lg hover:bg-paypal-darkblue transition-colors flex items-center space-x-2 mx-auto"
                   >
                     <FaQrcode />
-                    <span>Tạo QR mới</span>
+                    <span>Generate New QR</span>
                   </button>
                 </div>
               )}
@@ -504,14 +504,14 @@ function App() {
               {!qrCodeUrl && !isExpired && (
                 <div className="text-center py-12">
                   <FaMobileAlt className="text-gray-400 text-6xl mb-4 mx-auto" />
-                  <p className="text-gray-500 text-lg">Chưa có QR code</p>
-                  <p className="text-gray-400 text-sm mt-2">Vui lòng quay lại tab "Nhập số tiền" để tạo QR code</p>
+                  <p className="text-gray-500 text-lg">No QR code yet</p>
+                  <p className="text-gray-400 text-sm mt-2">Please go back to "Enter Amount" tab to generate QR code</p>
                   <button
                     onClick={() => setActiveTab('input')}
                     className="mt-4 px-6 py-2 bg-paypal-blue text-white rounded-lg hover:bg-paypal-darkblue transition-colors flex items-center space-x-2 mx-auto"
                   >
                     <FaQrcode />
-                    <span>Tạo QR Code</span>
+                    <span>Generate QR Code</span>
                   </button>
                 </div>
               )}
@@ -521,14 +521,14 @@ function App() {
           {activeTab === 'history' && (
             <div className="space-y-6">
               <div className="flex items-center justify-between">
-                <h3 className="text-lg font-semibold text-gray-800">Lịch sử QR Codes</h3>
+                <h3 className="text-lg font-semibold text-gray-800">QR Code History</h3>
                 {qrHistory.length > 0 && (
                   <button
                     onClick={clearHistory}
                     className="px-3 py-1 text-sm text-red-600 hover:text-red-800 hover:bg-red-50 rounded-lg transition-colors flex items-center space-x-1"
                   >
                     <FaTrash />
-                    <span>Xóa tất cả</span>
+                    <span>Clear All</span>
                   </button>
                 )}
               </div>
@@ -536,8 +536,8 @@ function App() {
               {qrHistory.length === 0 ? (
                 <div className="text-center py-12">
                   <FaHistory className="text-gray-400 text-6xl mb-4 mx-auto" />
-                  <p className="text-gray-500 text-lg">Chưa có lịch sử</p>
-                  <p className="text-gray-400 text-sm mt-2">Tạo QR code đầu tiên để xem lịch sử ở đây</p>
+                  <p className="text-gray-500 text-lg">No history yet</p>
+                  <p className="text-gray-400 text-sm mt-2">Generate your first QR code to see history here</p>
                 </div>
               ) : (
                 <div className="space-y-3 max-h-96 overflow-y-auto custom-scrollbar">
@@ -574,7 +574,7 @@ function App() {
                             className="px-3 py-1 text-sm bg-green-100 text-green-700 rounded-lg hover:bg-green-200 transition-colors flex items-center space-x-1"
                           >
                             <FaQrcode />
-                            <span>Tạo lại</span>
+                            <span>Regenerate</span>
                           </button>
                         </div>
                       </div>
@@ -585,7 +585,7 @@ function App() {
 
               {recentAmounts.length > 0 && (
                 <div className="mt-8">
-                  <h4 className="text-md font-semibold text-gray-800 mb-3">Số tiền thường dùng</h4>
+                  <h4 className="text-md font-semibold text-gray-800 mb-3">Frequently Used Amounts</h4>
                   <div className="grid grid-cols-4 gap-2">
                     {recentAmounts.map((recentAmount) => (
                       <button
